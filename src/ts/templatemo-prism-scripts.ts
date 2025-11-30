@@ -29,8 +29,7 @@ const skillsData: Skill[] = [
     { name: 'MongoDB', icon: '🍃', level: 90, category: 'backend' }
 ];
 
-function qs(selector: string): HTMLElement | null { return document.querySelector(selector) as HTMLElement | null; }
-function qsa(selector: string): HTMLElement[] { return Array.from(document.querySelectorAll(selector)) as HTMLElement[]; }
+// Helper qs/qsa are defined in src/ts/main.ts to avoid duplication
 
 // Scroll to section function
 function scrollToSection(sectionId: string): void {
@@ -95,6 +94,9 @@ function initCarousel(): void {
         indicator.dataset.index = index.toString();
         indicator.addEventListener('click', () => goToSlide(index));
         indicatorsContainer.appendChild(indicator);
+        // attach Explore button click to scroll to 'about' section
+        const exploreBtn = item.querySelector(`#explore-${index}`) as HTMLElement | null;
+        exploreBtn?.addEventListener('click', () => scrollToSection('about'));
     });
     updateCarousel();
 }
@@ -216,5 +218,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => { setTimeout(() => { const loader = document.getElementById('loader'); loader?.classList.add('hidden'); }, 1500); });
     window.addEventListener('scroll', () => { const scrolled = window.pageYOffset; const parallax = document.querySelector('.hero') as HTMLElement | null; if (parallax) parallax.style.transform = `translateY(${scrolled * 0.5}px)`; });
 });
-
-export {};

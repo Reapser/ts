@@ -1,3 +1,4 @@
+"use strict";
 // src/ts/templatemo-prism-scripts.ts
 // Converted from templatemo-prism-scripts.js to TypeScript
 const portfolioData = [
@@ -23,8 +24,7 @@ const skillsData = [
     { name: 'Vue.js', icon: '💚', level: 85, category: 'frontend' },
     { name: 'MongoDB', icon: '🍃', level: 90, category: 'backend' }
 ];
-function qs(selector) { return document.querySelector(selector); }
-function qsa(selector) { return Array.from(document.querySelectorAll(selector)); }
+// Helper qs/qsa are defined in src/ts/main.ts to avoid duplication
 // Scroll to section function
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -87,6 +87,9 @@ function initCarousel() {
         indicator.dataset.index = index.toString();
         indicator.addEventListener('click', () => goToSlide(index));
         indicatorsContainer.appendChild(indicator);
+        // attach Explore button click to scroll to 'about' section
+        const exploreBtn = item.querySelector(`#explore-${index}`);
+        exploreBtn === null || exploreBtn === void 0 ? void 0 : exploreBtn.addEventListener('click', () => scrollToSection('about'));
     });
     updateCarousel();
 }
@@ -265,4 +268,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => { const scrolled = window.pageYOffset; const parallax = document.querySelector('.hero'); if (parallax)
         parallax.style.transform = `translateY(${scrolled * 0.5}px)`; });
 });
-export {};
