@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle?.classList.remove('active');
         }
     }));
-    function updateActiveNav() {
+    function updateActiveNav(): void {
         const scrollPosition = window.scrollY + 100;
         sections.forEach(section => {
             const sectionTop = (section as HTMLElement).offsetTop;
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     window.addEventListener('scroll', updateActiveNav);
-    function animateCounter(element: HTMLElement) {
+    function animateCounter(element: HTMLElement): void {
         const target = parseInt(element.dataset.target || '0', 10);
         const duration = 2000;
         const step = target / (duration / 16);
