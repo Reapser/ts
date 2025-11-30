@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRISM FLUX - Digital Innovation Studio</title>
-    <link rel="stylesheet" href="templatemo-prism-flux.css">
+    <link rel="stylesheet" href="assets/css/templatemo-prism-flux.css">
+    <script src="assets/js/templatemo-prism-scripts.js"></script>
+    <script src="assets/js/main.js"></script>
+
 <!-- 
 
 TemplateMo 600 Prism Flux
@@ -316,25 +319,25 @@ https://templatemo.com/tm-600-prism-flux
             </div>
         </div>
     </footer>
-<script src="templatemo-prism-scripts.js"></script>
 
 <section class="posts-section reveal-on-scroll">
   <div class="container">
-    <h2>Latest posts (fetched)</h2>
+    <h2>Останні пости</h2>
     <div id="posts" class="posts-grid"></div>
   </div>
 </section>
 
 
-<div id="postModal" class="modal" aria-hidden="true" style="display:none;">
+<div id="postModal" class="modal" aria-hidden="true">
   <div class="modal-content" role="dialog" aria-modal="true">
     <button data-close-modal class="close">Close</button>
     <div class="modal-body">
       <!-- filled dynamically -->
     </div>
   </div>
-  <style>
-    .modal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); }
+    <style>
+        /* Hide modal by default and show only when is-open is present */
+        .modal { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); }
     .modal .modal-content { background:white; padding:1rem; max-width:600px; width:90%; border-radius:8px; transform:translateY(-10px); opacity:0; transition:all .2s ease; }
     .modal.is-open { display:flex; }
     .modal.is-open .modal-content { transform:translateY(0); opacity:1; }
@@ -343,9 +346,8 @@ https://templatemo.com/tm-600-prism-flux
     .reveal-on-scroll.visible { opacity:1; transform:none; }
     .posts-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); }
     .post { padding:1rem; border:1px solid #ddd; border-radius:6px; background:#fff; }
-  </style>
+    </style>
 </div>
 
-<script src="assets/js/main.js"></script>
 </body>
 </html>

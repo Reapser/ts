@@ -23,7 +23,10 @@ function qsa(selector: string): HTMLElement[] {
 
 // Modal open/close
 function openModal(modal: HTMLElement): void {
+  // Make modal visible via class + inline style for robustness
   modal.classList.add("is-open");
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden', 'false');
   // simple focus management
   const focusable = modal.querySelector<HTMLElement>("button, [href], input, textarea, [tabindex]");
   if (focusable) focusable.focus();
@@ -31,6 +34,8 @@ function openModal(modal: HTMLElement): void {
 
 function closeModal(modal: HTMLElement): void {
   modal.classList.remove("is-open");
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden', 'true');
 }
 
 function setupModals(): void {

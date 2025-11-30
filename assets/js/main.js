@@ -13,7 +13,10 @@ function qsa(selector) {
 }
 // Modal open/close
 function openModal(modal) {
+    // Make modal visible via class + inline style for robustness
     modal.classList.add("is-open");
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
     // simple focus management
     const focusable = modal.querySelector("button, [href], input, textarea, [tabindex]");
     if (focusable)
@@ -21,6 +24,8 @@ function openModal(modal) {
 }
 function closeModal(modal) {
     modal.classList.remove("is-open");
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
 }
 function setupModals() {
     qsa(openModalButtonsSelector).forEach(btn => {
