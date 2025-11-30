@@ -1,4 +1,4 @@
-import type { PortfolioItem, Skill } from '../../types';
+import type { PortfolioItem, Skill } from '../../types/index';
 
 export const portfolioData: PortfolioItem[] = [
   { id: 1, title: 'Neural Network', description: 'Advanced AI system with deep learning capabilities for predictive analytics and pattern recognition.', image: 'assets/images/neural-network.jpg', tech: ['TensorFlow', 'Python', 'CUDA'] },

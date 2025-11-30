@@ -1,5 +1,5 @@
-import initCarousel from './carousel';
-import { skillsData, portfolioData } from './repo-data';
+import initCarousel from './carousel.js';
+import { portfolioData } from './repo-data.js';
 
 export function initTemplatemo(): void {
   initCarousel(portfolioData);

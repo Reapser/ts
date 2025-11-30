@@ -1,4 +1,4 @@
-import { qs, qsa } from '../dom';
+import { qs, qsa } from '../dom/index.js';
 
 export function openModal(modal: HTMLElement): void {
   modal.classList.add('is-open');
@@ -18,22 +18,22 @@ export function setupModals(): void {
   const openModalButtonsSelector = '[data-open-modal]';
   const closeModalButtonsSelector = '[data-close-modal]';
   const modalSelector = '.modal';
-  qsa(openModalButtonsSelector).forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  qsa(openModalButtonsSelector).forEach((btn: HTMLElement) => {
+    btn.addEventListener('click', (e: Event) => {
       const target = (e.currentTarget as HTMLElement).getAttribute('data-open-modal');
       if (!target) return;
       const modal = qs(target);
       if (modal) openModal(modal);
     });
   });
-  qsa(closeModalButtonsSelector).forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  qsa(closeModalButtonsSelector).forEach((btn: HTMLElement) => {
+    btn.addEventListener('click', (e: Event) => {
       const modal = (e.currentTarget as HTMLElement).closest(modalSelector) as HTMLElement | null;
       if (modal) closeModal(modal);
     });
   });
-  qsa(modalSelector).forEach(m => {
-    m.addEventListener('click', (e) => {
+  qsa(modalSelector).forEach((m: HTMLElement) => {
+    m.addEventListener('click', (e: Event) => {
       if (e.target === m) closeModal(m);
     });
   });

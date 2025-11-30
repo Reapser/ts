@@ -1,4 +1,4 @@
-import type { PortfolioItem } from '../../types';
+import type { PortfolioItem } from '../../types/index';
 export function initCarousel(portfolioData: PortfolioItem[]): void {
   let currentIndex = 0;
   const carousel = document.getElementById('carousel');
@@ -34,7 +34,7 @@ export function initCarousel(portfolioData: PortfolioItem[]): void {
     const item = document.createElement('div');
     item.className = 'carousel-item';
     item.dataset.index = index.toString();
-    const techBadges = data.tech.map(tech => `<span class="tech-badge">${tech}</span>`).join('');
+    const techBadges = data.tech.map((tech: string) => `<span class="tech-badge">${tech}</span>`).join('');
     item.innerHTML = `
       <div class="card">
         <div class="card-number">0${data.id}</div>

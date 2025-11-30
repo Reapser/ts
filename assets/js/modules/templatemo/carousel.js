@@ -66,7 +66,7 @@ export function initCarousel(portfolioData) {
         const item = document.createElement('div');
         item.className = 'carousel-item';
         item.dataset.index = index.toString();
-        const techBadges = data.tech.map(tech => `<span class="tech-badge">${tech}</span>`).join('');
+        const techBadges = data.tech.map((tech) => `<span class="tech-badge">${tech}</span>`).join('');
         item.innerHTML = `
       <div class="card">
         <div class="card-number">0${data.id}</div>

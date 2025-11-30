@@ -1,5 +1,5 @@
-import { qs, qsa } from '../dom';
-import { openModal } from '../modal';
+import { qs, qsa } from '../dom/index.js';
+import { openModal } from '../modal/index.js';
 import type { Post } from '../../types';
 
 const postsEndpoint = 'https://jsonplaceholder.typicode.com/posts?_limit=5';
@@ -17,8 +17,8 @@ export async function fetchAndShowPosts(): Promise<void> {
       article.innerHTML = `<h3>${p.title}</h3><p>${p.body}</p><button class='open-post' data-postid='${p.id}'>Details</button>`;
       container.appendChild(article);
     });
-    qsa('.open-post').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    qsa('.open-post').forEach((btn: HTMLElement) => {
+      btn.addEventListener('click', (e: Event) => {
         const idStr = (e.currentTarget as HTMLElement).getAttribute('data-postid');
         if (!idStr) return;
         const postId = Number(idStr);
